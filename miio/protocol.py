@@ -191,6 +191,8 @@ class EncryptionAdapter(Adapter):
             lambda decrypted_bytes: decrypted_bytes.replace(
                 b'"value":00', b'"value":0'
             ),
+            lambda decrypted_bytes: decrypted_bytes.replace(b'",01', b'",1'),
+            lambda decrypted_bytes: decrypted_bytes.replace(b'",03', b'",3'),
         ]
 
         for i, quirk in enumerate(decrypted_quirks):
